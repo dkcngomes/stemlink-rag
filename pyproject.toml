@@ -13,6 +13,7 @@ dependencies = [
     "python-env>=1.0.0",
     "python-dotenv>=1.0.0",
     "dotenv>=0.9.9",
+    "requests>=2.34.2",
 ]
 
 [project.scripts]
