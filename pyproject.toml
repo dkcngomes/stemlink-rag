@@ -1,0 +1,25 @@
+[project]
+name = "stem-link-rag"
+version = "0.1.0"
+description = "Developed by Nipuna DKCN"
+readme = "README.md"
+authors = [
+    { name = "Nipuna", email = "dkcngomes@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "openai>=3.49.0",
+    "python-dotenv>=1.0.0",
+    "python-env>=1.0.0",
+    "python-dotenv>=1.0.0",
+    "dotenv>=0.9.9",
+]
+
+[project.scripts]
+stem-link-rag = "stem_link_rag:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+
