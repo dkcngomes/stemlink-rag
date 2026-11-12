@@ -1,27 +1,30 @@
-import os
-import sys
-import requests
+from config import chat_model , rule
+from langchain.messages import SystemMessage, HumanMessage
 
-from langchain_openai import ChatOpenAI
-from pathlib import Path
-from dotenv import load_dotenv
-
-project_root = Path(__file__).resolve().parents[1]
-load_dotenv(project_root / ".env")
-
-API_KEY = os.getenv("OPENAI_API_KEY")
 QUESTION = "Name the two paddy cultivation seasons in Sri Lanka."
+QUESTION2 = "What is Bg 300?"
 
-chat_model = ChatOpenAI(
-    model_name="gpt-5.6-luna",
-    openai_api_key=API_KEY,
-    max_tokens=100,
-    temperature=0.7,
-    request_timeout=60,
-)
+model = chat_model()
+messages = [
+    SystemMessage(content="You are a terse agricultural advisor for Sri Lankan farmers."),
+    HumanMessage(content=QUESTION2)
+]
+response = model.invoke(messages)
 
-response = chat_model.invoke([{"role": "user", "content": QUESTION}])
+# rule("1.Messages Have Roles")
+# print(response.content)
 
-print("-" * 40)
-print(response.content)
-print("-" * 40)
+# rule("2.New follow-up question for Bg 300")
+# response = model.invoke([HumanMessage(content="How long does it takes to mature?")])
+# print(response.content)
+
+rule("3.We need to maintain list of messages for context")
+messages.append(response)
+messages.append(HumanMessage(content="How long does it takes to mature?"))
+
+for m in messages:
+    print(f" {type(m).__name__:14s} {m.text[:52]!r}")
+
+followup = model.invoke(messages)
+print("-" * 70)
+print(followup.content)
