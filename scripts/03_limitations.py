@@ -1,3 +1,4 @@
+# Developer : @dkcngomes
 from config import chat_model , rule
 from langchain.messages import SystemMessage, HumanMessage, AIMessage
 from corpus import DOCS

@@ -1,3 +1,4 @@
+# Developer : @dkcngomes
 """Shared weather code. Not a lesson concept.
 
 Open-Meteo (https://open-meteo.com) is a free weather API. No account, no key,

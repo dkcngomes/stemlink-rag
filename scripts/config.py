@@ -1,5 +1,4 @@
-import os
-import sys
+# Developer : @dkcngomes
 
 from dotenv import load_dotenv
 from pathlib import Path
