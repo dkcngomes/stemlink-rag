@@ -5,10 +5,8 @@ from langchain.messages import SystemMessage, HumanMessage, AIMessage
 from langgraph.runtime import CONF , CONFIG_KEY_RUNTIME, DEFAULT_RUNTIME
 from langgraph.prebuilt import ToolNode
 
-QUESTION = "Colombo rain forcast for the next 24 hours in mm?"
-
+QUESTION = "Pollonaruwa rain forcast for the next 24 hours in mm?"
 model = chat_model(reasoning_effort="none") 
-
 
 messages = [
     SystemMessage(content="You are an advisor for Sri Lankan Paddy Farmers."),
