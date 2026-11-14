@@ -44,7 +44,7 @@ def geocode(place: str) -> tuple[float, float, str]:
 
 @tool
 def get_forecast(district: str) -> str:
-    """Get the 48-hour rainfall forecast for a Sri Lankan district, in mm."""
+    """Get the 24-hour rainfall forecast for a Sri Lankan district, in mm."""
     print(f">>> get_forecast: {district}")
 
     lat, lon, name = geocode(district)
